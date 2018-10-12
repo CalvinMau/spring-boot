@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Bootstrap core CSS -->
+
+    <link th:href="@{css/bootstrap-v3.2.0.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootrap-theme-v3.2.0.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap-table-v1.12.0.css}" rel="stylesheet">
+</head>
+
+
+<body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default" th:fragment="header">
+        <div class="container-fluid">
+            <div class="navbar-header" >
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" style="font-size: 19px; color: blue; "
+                           th:text="(${session.SPRING_SECURITY_CONTEXT} == null) ? 'Guest' : ${session.SPRING_SECURITY_CONTEXT.authentication.principal.username}"></a>
+                    </li>
+                    <li><a href="/logout" th:text="Logout"></a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+
+    <script>
+        console.info(session)
+    </script>
+</body>
+</html>
